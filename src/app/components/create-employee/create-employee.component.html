@@ -1,0 +1,37 @@
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3>{{title_scene}}
+                        <div *ngIf="loading" class="spinner-border" role="status" style="float: right;">
+                            <span class="sr-only"></span>
+                        </div>
+                    </h3>
+                    <span *ngIf="submited && createEmployee.invalid" class="badge badge-pill badge-danger" style="background-color: red;">All changes are obligatory</span>
+                    <form class="mt-4" [formGroup]="createEmployee" (ngSubmit)="create_employee()">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control form-control-lg"
+                                placeholder="Name" formControlName="name">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control form-control-lg"
+                                placeholder="Last Name" formControlName="lastname">
+                            </div>
+                        </div>
+                        <input type="text" class="form-control form-control-lg mt-3"
+                                placeholder="Document" formControlName="document">
+                        <input type="number" class="form-control form-control-lg mt-3"
+                                placeholder="Salary" formControlName="salary">
+                        <div class="mt-3">
+                            <button type="text" class="btn btn-secondary" style="margin-right: 3px;"
+                                routerLink="/list-employes">Cancel</button>
+                            <button type="submit" class="btn btn-dark">{{status_action}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
